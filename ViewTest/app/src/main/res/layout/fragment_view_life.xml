@@ -4,7 +4,11 @@
     android:layout_height="match_parent">
 
     <com.example.viewtest.view.LifeView
+        android:id="@+id/lifeview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"
+        android:freezesText="true"
+        android:text="123456789"/>
 
 </LinearLayout>

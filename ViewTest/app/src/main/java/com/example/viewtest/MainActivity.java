@@ -19,9 +19,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String TAG = MainActivity.class.getName();
 
     public static final int PROGRESSBAR = 0;
+    public static final int SCROLLVIEW = 1;
     public static final int LIFECYCLE = 2;
 
     private Button progressBtn;
+    private Button scrollViewBtn;
     private Button lifeBtn;
 
     @Override
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         progressBtn = findViewById(R.id.progress_button);
         progressBtn.setOnClickListener(this);
+
+        scrollViewBtn = findViewById(R.id.scrollview);
+        scrollViewBtn.setOnClickListener(this);
 
         lifeBtn = findViewById(R.id.life_button);
         lifeBtn.setOnClickListener(this);
@@ -42,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.progress_button:
                 type = PROGRESSBAR;
+                break;
+            case R.id.scrollview:
+                type = SCROLLVIEW;
                 break;
             case R.id.life_button:
                 type = LIFECYCLE;

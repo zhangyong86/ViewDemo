@@ -14,10 +14,11 @@
         android:text="自定义数字进度条"/>
 
     <Button
-
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:text="自定义滑动ViewGroup"/>
 
     <Button
         android:id="@+id/life_button"

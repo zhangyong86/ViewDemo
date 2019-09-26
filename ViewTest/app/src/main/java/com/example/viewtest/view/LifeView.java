@@ -1,15 +1,22 @@
 package com.example.viewtest.view;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class LifeView extends View {
+import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+
+public class LifeView extends TextView {
     
     private String TAG = LifeView.class.getName();
 
@@ -108,5 +115,40 @@ public class LifeView extends View {
     protected void onDetachedFromWindow() {
         Log.i(TAG, "onDetachedFromWindow: ");
         super.onDetachedFromWindow();
+    }
+
+    /**
+     * 验证横竖切换时是否会保存数据
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        setText("9876543");
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Log.i(TAG, "onSaveInstanceState: ");
+        return super.onSaveInstanceState();
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        Log.i(TAG, "onRestoreInstanceState: " + state);
+        super.onRestoreInstanceState(state);
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        Log.i(TAG, "onConfigurationChanged: " + newConfig);
+        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        if (newConfig.orientation == ORIENTATION_LANDSCAPE){//横屏
+            layoutParams.height = getResources().getDisplayMetrics().widthPixels;
+        }else {
+            layoutParams.height = 800;
+        }
+        setLayoutParams(layoutParams);
     }
 }

@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.example.viewtest.fragment.ProgressFragment;
+import com.example.viewtest.fragment.ScrollViewFragment;
 import com.example.viewtest.fragment.ViewLifeFragment;
 
 public class SecondActivity extends AppCompatActivity {
@@ -29,6 +31,9 @@ public class SecondActivity extends AppCompatActivity {
             case MainActivity.PROGRESSBAR:
                 fragment = new ProgressFragment();
                 break;
+            case MainActivity.SCROLLVIEW:
+                fragment = new ScrollViewFragment();
+                break;
             case MainActivity.LIFECYCLE:
                 fragment = new ViewLifeFragment();
                 break;
@@ -40,4 +45,8 @@ public class SecondActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
 }
