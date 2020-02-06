@@ -27,6 +27,13 @@
         android:layout_marginTop="20dp"
         android:text="view的生命周期"/>
 
+    <Button
+        android:id="@+id/round_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="圆角ImageView"/>
+
 
 
 </LinearLayout>

@@ -9,14 +9,14 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
-public class LifeView extends TextView {
+public class LifeView extends AppCompatTextView {
     
     private String TAG = LifeView.class.getName();
 
@@ -140,6 +140,11 @@ public class LifeView extends TextView {
         super.onRestoreInstanceState(state);
     }
 
+    /**
+     * 旋转修改View的高度
+     * 通过LayoutParams-onMeasure的参数MeasureSpec是由父布局的MeasureSpec和view的LayoutParams共同决定
+     * @param newConfig
+     */
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         Log.i(TAG, "onConfigurationChanged: " + newConfig);

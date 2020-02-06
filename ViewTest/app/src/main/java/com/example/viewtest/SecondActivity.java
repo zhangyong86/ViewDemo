@@ -7,9 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.widget.FrameLayout;
 
 import com.example.viewtest.fragment.ProgressFragment;
+import com.example.viewtest.fragment.RoundImageFragment;
 import com.example.viewtest.fragment.ScrollViewFragment;
 import com.example.viewtest.fragment.ViewLifeFragment;
 
@@ -36,6 +40,9 @@ public class SecondActivity extends AppCompatActivity {
                 break;
             case MainActivity.LIFECYCLE:
                 fragment = new ViewLifeFragment();
+                break;
+            case MainActivity.ROUNDIMAGE:
+                fragment = new RoundImageFragment();
                 break;
         }
         FragmentManager fm = getSupportFragmentManager();

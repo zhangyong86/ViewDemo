@@ -21,23 +21,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int PROGRESSBAR = 0;
     public static final int SCROLLVIEW = 1;
     public static final int LIFECYCLE = 2;
-
-    private Button progressBtn;
-    private Button scrollViewBtn;
-    private Button lifeBtn;
+    public static final int ROUNDIMAGE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        progressBtn = findViewById(R.id.progress_button);
+        Button progressBtn = findViewById(R.id.progress_button);
         progressBtn.setOnClickListener(this);
 
-        scrollViewBtn = findViewById(R.id.scrollview);
+        Button scrollViewBtn = findViewById(R.id.scrollview);
         scrollViewBtn.setOnClickListener(this);
 
-        lifeBtn = findViewById(R.id.life_button);
+        Button lifeBtn = findViewById(R.id.life_button);
         lifeBtn.setOnClickListener(this);
+
+        Button roundBtn = findViewById(R.id.round_button);
+        roundBtn.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.life_button:
                 type = LIFECYCLE;
+                break;
+            case  R.id.round_button:
+                type = ROUNDIMAGE;
                 break;
         }
         Intent intent = new Intent(this, SecondActivity.class);
